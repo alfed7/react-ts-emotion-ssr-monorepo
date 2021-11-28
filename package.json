@@ -1,0 +1,28 @@
+{
+  "name": "react-ts-emotion-ssr-monorepo",
+  "version": "1.0.0",
+  "description": "React, Typescript, Webpack, Emotion monorepo.",
+  "author": "Alexander Fedorenko",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "yarn --cwd packages/web start",
+    "storybook": "yarn --cwd packages/ui storybook",
+    "prod:build-server": "yarn --cwd packages/server build",
+    "prod:build-client": "yarn --cwd packages/web build",
+    "build": "npm-run-all prod:*",
+    "ssr:build-server": "yarn --cwd packages/server dev",
+    "ssr:build-client": "yarn --cwd packages/web build:dev",
+    "ssr": "npm-run-all --parallel ssr:*",
+    "test:dev": "yarn --cwd packages/server test",
+    "test:web": "yarn --cwd packages/web test",
+    "test:core": "yarn --cwd packages/core test",
+    "test": "npm-run-all test:*"
+  },
+  "devDependencies": {
+    "yarn-run-all": "^3.1.1"
+  }
+}
