@@ -2,6 +2,7 @@
   "name": "react-ts-emotion-ssr-monorepo",
   "version": "1.0.0",
   "description": "React, Typescript, Webpack, Emotion monorepo.",
+  "repository": "https://github.com/alfed7/react-ts-emotion-ssr-monorepo.git",
   "author": "Alexander Fedorenko",
   "license": "MIT",
   "private": true,
