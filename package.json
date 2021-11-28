@@ -10,15 +10,17 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "yarn --cwd packages/web start",
-    "storybook": "yarn --cwd packages/ui storybook",
+    "start": "yarn dev:web",
+    "dev:core": "yarn --cwd packages/core start",
+    "dev:web": "yarn --cwd packages/web start",
+    "storybook": "yarn --cwd packages/core storybook",
     "prod:build-server": "yarn --cwd packages/server build",
     "prod:build-client": "yarn --cwd packages/web build",
     "build": "npm-run-all prod:*",
     "ssr:build-server": "yarn --cwd packages/server dev",
     "ssr:build-client": "yarn --cwd packages/web build:dev",
     "ssr": "npm-run-all --parallel ssr:*",
-    "test:dev": "yarn --cwd packages/server test",
+    "test:server": "yarn --cwd packages/server test",
     "test:web": "yarn --cwd packages/web test",
     "test:core": "yarn --cwd packages/core test",
     "test": "npm-run-all test:*"
