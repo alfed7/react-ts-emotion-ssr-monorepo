@@ -1,18 +1,11 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsxImportSource": "@emotion/react",
-    "jsx": "react-jsx"
+    "rootDir": "src",
+    "outDir": "./build/types",
+    "types": ["node"]
   },
-  "include": ["src", "./custom.d.ts", "./emotion.d.ts"]
+  "exclude": ["node_modules", "build"],
+  "references": [],
+  "include": ["../../emotion.d.ts"]
 }

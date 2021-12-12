@@ -1,17 +1,23 @@
-import { FC } from "react";
+import type { FC } from "react";
 import { ThemeProvider } from "@emotion/react";
-import { Button } from "./components";
 import { theme } from "./theme";
+import { Outlet } from "react-router";
+import { HelmetProvider } from "react-helmet-async";
+import HelmetHead from "./components/HelmetHead";
 
-const App: FC = () => {
+ //context={staticContext}>
+export const App: FC = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <div>
-        <h1>My React and TypeScript App!</h1>
-        <Button>Test</Button>
-      </div>
-    </ThemeProvider>
+    <HelmetProvider>
+      {<HelmetHead title="React Emotion SSR Workspace 1" />}
+      <ThemeProvider theme={theme}><Outlet/></ThemeProvider>
+    </HelmetProvider>
   );
 };
-
-export default App;
+function loadData() {
+  //return dispatch(someActions.doAction());
+}
+export default {
+  loadData,
+  component: App,
+};

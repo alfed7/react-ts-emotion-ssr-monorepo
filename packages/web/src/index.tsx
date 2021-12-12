@@ -1,4 +1,4 @@
-import ReactDOM from "react-dom";
-import App from "./App";
-
-ReactDOM.render(<App />, document.getElementById("root"));
+export * from "./App";
+export { default as routes } from "./routes";
+export { renderRoutes } from "./components/layout";
+export { default as reducers } from "./redux/reducers";

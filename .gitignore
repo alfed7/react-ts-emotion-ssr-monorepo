@@ -120,3 +120,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# rollup
+.rollup.cache
+build/
+tsconfig.tsbuildinfo
