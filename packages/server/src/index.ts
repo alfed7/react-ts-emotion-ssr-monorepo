@@ -1,6 +1,7 @@
 import { createHttpServer } from "./server";
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+console.log(`Trying to start at http://localhost:${PORT}/`);
 
 const app = createHttpServer();
 

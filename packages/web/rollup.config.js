@@ -3,7 +3,7 @@ const pkg = require("./package.json");
 import { babel } from "@rollup/plugin-babel";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
-import typescript from "@rollup/plugin-typescript";
+//import typescript from "@rollup/plugin-typescript";
 import replace from "rollup-plugin-replace";
 import copy from "rollup-plugin-copy";
 import { terser } from "rollup-plugin-terser";
@@ -11,19 +11,13 @@ import { terser } from "rollup-plugin-terser";
 const production = !process.env.ROLLUP_WATCH;
 const extensions = [".js", ".jsx", ".ts", ".tsx"];
 
+process.env.NODE_ENV = production ? 'production' : '';
+
 const external = [
   ...Object.keys(pkg.peerDependencies || {}),
   ...Object.keys(pkg.dependencies || {}),
   "@babel\runtime"
 ];
-
-// const makeExternalPredicate = externalArr => {
-//   if (externalArr.length === 0) {
-//     return () => false;
-//   }
-//   const pattern = new RegExp(`^(${externalArr.join("|")})($|/)`);
-//   return id => pattern.test(id);
-// }
 
 export default [
   {
@@ -38,7 +32,6 @@ export default [
         globals: {},
       },
     ],
-    //external,
     plugins: [
       resolve({
         extensions,
@@ -85,13 +78,15 @@ export default [
     ],
     external,
     plugins: [
-      // resolve({
-      //   extensions,
-      // }),
-      commonjs(),
-      typescript({
-        exclude: ["**/*.test.ts?(x)"],
+      resolve({
+        extensions,
       }),
+      commonjs(),
+      // typescript({
+      //   exclude: ["**/*.test.ts?(x)"],
+      //   include: ["../../emotion.d.ts"],
+      //   sourceMap: !production, inlineSources: !production
+      // }),
       babel({
         exclude: /^(.+\/)?node_modules\/.+$/,
         extensions,
