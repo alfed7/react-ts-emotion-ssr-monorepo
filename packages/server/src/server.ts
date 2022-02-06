@@ -61,7 +61,7 @@ const ssr = (req: express.Request, res: express.Response, next: any) => {
       };
       const content = renderHtml(req, store, context);
 
-      // It's better to handle redirects on a client because of browser cache.
+      // It's better to handle redirects on a client because of a browser cache.
       // if(context.url) {
       //   return res.redirect(301, context.url);
       // }
@@ -91,19 +91,8 @@ export function createHttpServer(): express.Express {
   app.use(compression());
   app.use(express.static(appBundleDirectory));
   app.use(cookieParser());
-  app.get('/', ssr);
+  app.get('*', ssr);
 
   return app;
 }
-
-//const server = createHttpServer();
-// const server = http.createServer((req: http.IncomingMessage, res: http.ServerResponse) => {
-//   parseCookies(req, res, () =>
-//     serve(req, res, () => ssr(req, res, finalhandler(req, res)))
-//   );
-// });
-
-// server.listen(port, () => {
-//   console.log(`listyenning on port ${port}`);
-// });
 

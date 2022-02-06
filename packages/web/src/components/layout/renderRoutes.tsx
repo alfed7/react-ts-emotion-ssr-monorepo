@@ -3,7 +3,7 @@ import { Route } from 'react-router';
 import RouteElementWithLayout from './RouteElementWithLayout';
 
 export function renderRoutes(routes: any) {
-  console.log(routes);
+  //console.log(routes);
   return routes ? (
       routes.map((route: any, i: number) => (
         <Route

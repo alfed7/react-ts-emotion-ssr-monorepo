@@ -81,7 +81,7 @@
     "build": "rollup -c",
     "watch": "rollup -c -w",
     "dev": "npm-run-all --parallel watch mon",
-    "mon": "nodemon build/server-bundle.js",
+    "mon": "nodemon build/server-bundle.js --watch ../web/build build",
     "start": "nodemon build/server-bundle.js",
     "prestart": "yarn workspace @retesm/core build & yarn workspace @retesm/web build & yarn build",
     "tsc": "tsc -b",

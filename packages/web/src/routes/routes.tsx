@@ -1,5 +1,6 @@
 import App from "../App";
 import { HomeView, AboutView } from "../views";
+import { LandingLayout } from '../layouts';
 
 export default [
   {
@@ -8,12 +9,12 @@ export default [
     children: [
       {
         ...HomeView,
-        //layout: LandLayout,
+        layout: LandingLayout,
         path: "/",
       },
       {
         ...AboutView,
-        //layout: LandLayout,
+        layout: LandingLayout,
         path: "/about",
       },
     ],

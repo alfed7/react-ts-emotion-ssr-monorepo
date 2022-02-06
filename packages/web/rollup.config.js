@@ -5,7 +5,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 //import typescript from "@rollup/plugin-typescript";
 import replace from "rollup-plugin-replace";
-import copy from "rollup-plugin-copy";
+//import copy from "rollup-plugin-copy";
 import { terser } from "rollup-plugin-terser";
 import svgr from '@svgr/rollup';
 
@@ -52,12 +52,17 @@ export default [
       replace({
         "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
       }),
-      copy({
-        targets: [{ src: "src/index.html", dest: "build" }],
-        copyOnce: true
-      }),
+      // copy({
+      //   targets: [{ src: "src/index.html", dest: "build" }],
+      //   copyOnce: true
+      // }),
       production && terser(),
     ],
+    watch: {
+      chokidar: {
+          paths: ['src/**', '../core/build/**']
+      }
+    }
   },
   {
     input: "./src/index.tsx",
@@ -100,5 +105,8 @@ export default [
       }),
       production && terser(),
     ],
+    watch: {
+      paths: ['src/**', '../core/build/**']
+    }
   },
 ];

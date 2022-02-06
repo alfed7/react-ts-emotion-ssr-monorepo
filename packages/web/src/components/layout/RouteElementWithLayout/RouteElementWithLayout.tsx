@@ -1,11 +1,11 @@
 
-export type RouteElementWithLayoutProps = {
-  component?: any,
-  componentTypeId?: number,
-  layout?: any,
-  menuCreator?: any,
+export interface IRouteElementWithLayoutProps {
+  component?: any;
+  componentTypeId?: number;
+  layout?: any;
+  menuCreator?: any;
 }
-const RouteElementWithLayout = (props: RouteElementWithLayoutProps) => {
+const RouteElementWithLayout = (props: IRouteElementWithLayoutProps) => {
   const { component: Component, componentTypeId, menuCreator, ...rest } = props;
 
   if(props.layout) {

@@ -51,4 +51,7 @@ module.exports = {
     }),
     production && terser(),
   ],
+  watch: {
+    paths: ['src/**', '../web/build/**']
+  }
 };
