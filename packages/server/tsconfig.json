@@ -7,5 +7,5 @@
   },
   "exclude": ["node_modules", "build"],
   "references": [{ "path": "../web" }],
-  "include": ["../../emotion.d.ts"]
+  "include": ["../../emotion.d.ts", "../../custom.d.ts"]
 }

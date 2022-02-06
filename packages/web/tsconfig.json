@@ -7,5 +7,5 @@
   },
   "exclude": ["node_modules", "build"],
   "references": [],
-  "include": ["../../emotion.d.ts", "./src"]
+  "include": ["../../emotion.d.ts", "../../custom.d.ts", "./src"]
 }

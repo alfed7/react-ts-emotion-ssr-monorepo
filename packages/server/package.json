@@ -83,7 +83,7 @@
     "dev": "npm-run-all --parallel watch mon",
     "mon": "nodemon build/server-bundle.js",
     "start": "nodemon build/server-bundle.js",
-    "prestart": "yarn workspace @retesm/web build & yarn build",
+    "prestart": "yarn workspace @retesm/core build & yarn workspace @retesm/web build & yarn build",
     "tsc": "tsc -b",
     "lint": "eslint \"src/**\" --ext .ts --ext .tsx",
     "test": "jest"

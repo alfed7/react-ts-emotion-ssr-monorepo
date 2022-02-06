@@ -2,13 +2,10 @@ module.exports = {
   "stories": ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   "addons": ["@storybook/addon-links", "@storybook/addon-essentials"],
   "framework": "@storybook/react",
-  core: {
-    builder: "webpack5"
-  },
   webpackFinal: async (config, { configType }) => {
     // Add SVGR Loader
     // ========================================================
-    const assetRule = config.module.rules.find(({ test }) => test.test(".svg"));
+    const assetRule = config.module.rules.find(rule => rule.test && rule.test.test(".svg"));
 
     assetRule.exclude = /\.svg$/;
 

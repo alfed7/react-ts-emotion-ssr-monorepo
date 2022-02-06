@@ -5,6 +5,7 @@ import { babel } from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
+import svgr from '@svgr/rollup';
 
 const production = !process.env.ROLLUP_WATCH;
 process.env.NODE_ENV = production ? 'production' : '';
@@ -41,6 +42,7 @@ module.exports = {
       extensions,
     }),
     commonjs(),
+    svgr(),
     babel({
       exclude: /^(.+\/)?node_modules\/.+$/,
       extensions,

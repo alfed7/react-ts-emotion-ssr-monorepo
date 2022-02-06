@@ -18,11 +18,13 @@ const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 export const TextButton = Template.bind({});
 TextButton.args = {
   children: "Test",
-  color: "#ccc",
+  color: "primaryFg",
+  backgroundColor: "primary"
 };
 
 export const IconButton = Template.bind({});
 IconButton.args = {
   children: <Colors />,
-  color: "#ccc",
+  color: "primaryFg",
+  backgroundColor: "primary"
 };

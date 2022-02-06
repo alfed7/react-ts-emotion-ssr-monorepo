@@ -9,7 +9,7 @@ import HelmetHead from "./components/HelmetHead";
 export const App: FC = () => {
   return (
     <HelmetProvider>
-      {<HelmetHead title="React Emotion SSR Workspace 1" />}
+      {<HelmetHead title="React Emotion SSR Workspace" />}
       <ThemeProvider theme={theme}><Outlet/></ThemeProvider>
     </HelmetProvider>
   );

@@ -18,8 +18,6 @@ if (parseResult.error) {
   console.log(parseResult.error);
 }
 
-const port = process.env.PORT || 3000;
-
 type LoadDataFunction = (store: any, urlSearch: string | null) => Promise<void>;
 type RouteObjectSsr = {
   loadData: LoadDataFunction,
