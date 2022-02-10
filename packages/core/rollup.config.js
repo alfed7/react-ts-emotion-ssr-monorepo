@@ -9,6 +9,10 @@ import svgr from '@svgr/rollup';
 
 const production = !process.env.ROLLUP_WATCH;
 const extensions = [".js", ".jsx", ".ts", ".tsx"];
+import alias from '@rollup/plugin-alias';
+import path from 'path';
+
+const projectRootDir = path.resolve(__dirname);
 
 process.env.NODE_ENV = production ? 'production' : '';
 
@@ -51,6 +55,18 @@ export default [
         extensions,
         babelHelpers: "runtime",
         sourceMaps: !production,
+      }),
+      alias({
+        entries: [
+          {
+            find: 'components',
+            replacement: path.resolve(projectRootDir, 'src/components')
+          },
+          {
+            find: 'theme',
+            replacement: path.resolve(projectRootDir, 'src/theme')
+          }
+        ],
       }),
       production && terser(),
     ],

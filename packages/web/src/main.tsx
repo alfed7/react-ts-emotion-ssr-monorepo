@@ -7,6 +7,7 @@ import reducers from "./redux/reducers";
 import thunkMiddleware from "redux-thunk";
 import { createLogger } from "redux-logger";
 import { renderRoutes } from "./components/layout";
+import { HelmetProvider } from "react-helmet-async";
 const loggerMiddleware = createLogger();
 
 declare global {
@@ -22,8 +23,10 @@ export const store = createStore(
 const render = window.INITIAL_STATE ? ReactDOM.hydrate : ReactDOM.render;
 
 render(
-  <Provider store={store}>
-    <Router><Routes>{renderRoutes(routes)}</Routes></Router>
-  </Provider>,
+  <HelmetProvider>
+    <Provider store={store}>
+        <Router><Routes>{renderRoutes(routes)}</Routes></Router>
+    </Provider>
+  </HelmetProvider>,
   document.getElementById("app")
 );

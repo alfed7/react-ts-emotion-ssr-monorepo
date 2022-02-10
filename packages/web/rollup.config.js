@@ -8,6 +8,10 @@ import replace from "rollup-plugin-replace";
 //import copy from "rollup-plugin-copy";
 import { terser } from "rollup-plugin-terser";
 import svgr from '@svgr/rollup';
+import alias from '@rollup/plugin-alias';
+import path from 'path';
+
+const projectRootDir = path.resolve(__dirname);
 
 const production = !process.env.ROLLUP_WATCH;
 const extensions = [".js", ".jsx", ".ts", ".tsx"];
@@ -56,7 +60,15 @@ export default [
       //   targets: [{ src: "src/index.html", dest: "build" }],
       //   copyOnce: true
       // }),
-      production && terser(),
+      alias({
+        entries: [
+          {
+            find: 'components',
+            replacement: path.resolve(projectRootDir, 'src/components')
+          }
+        ],
+      }),
+      //production && terser(),
     ],
     watch: {
       chokidar: {
@@ -103,7 +115,15 @@ export default [
         sourceMaps: !production,
         skipPreflightCheck: true
       }),
-      production && terser(),
+      alias({
+        entries: [
+          {
+            find: 'components',
+            replacement: path.resolve(projectRootDir, 'src/components')
+          }
+        ],
+      }),
+      //production && terser(),
     ],
     watch: {
       paths: ['src/**', '../core/build/**']

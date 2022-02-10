@@ -1,11 +1,12 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": "src",
+    "rootDir": "./src",
+    "baseUrl": "./",
     "outDir": "./build/types",
     "types": ["node"]
   },
   "exclude": ["node_modules", "build"],
-  "references": [{ "path": "../web" }],
+  "references": [{ "path": "../web" }, { "path": "../core" }],
   "include": ["../../emotion.d.ts", "../../custom.d.ts"]
 }

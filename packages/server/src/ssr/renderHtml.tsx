@@ -4,18 +4,24 @@ import { Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 import { routes, renderRoutes } from "@retesm/web";
 import serialize from "serialize-javascript";
+import { FilledContext, HelmetData, HelmetProvider } from "react-helmet-async";
 
 export default (req: any, store: any, context: any) => {
+  const helmetContext: any = {};
+
   const contentJsx = <Provider store={store}>
-      <Router context={context} location={req.url}>
+    <Router context={context} location={req.url}>
+      <HelmetProvider context={helmetContext}>
         <Routes>
           {renderRoutes(routes)}
         </Routes>
-      </Router>
-    </Provider>;
+      </HelmetProvider>
+    </Router>
+  </Provider>;
   const content = renderToString(contentJsx);
 
-  const { helmet } = context;
+  //console.log("helmetContext", helmetContext);
+  const { helmet } = helmetContext;
   const helmetTitle = (helmet && helmet.title) ? helmet.title.toString() : '';
   const helmetMeta = (helmet && helmet.meta) ? helmet.meta.toString() : '';
   const html = `<!DOCTYPE html>

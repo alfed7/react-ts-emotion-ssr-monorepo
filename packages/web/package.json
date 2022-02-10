@@ -23,6 +23,9 @@
     "redux-thunk": "^2.4.1",
     "colord": "^2.9.2"
   },
+  "peerDependencies": {
+    "react-helmet-async": "^1.2.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.16.12",
     "@babel/plugin-transform-runtime": "^7.16.10",
@@ -44,12 +47,15 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "jest": "^27.4.7",
+    "babel-jest": "^27.5.0",
+    "@types/jest": "^27.4.0",
     "prettier": "^2.5.1",
     "prettier-eslint": "^13.0.0",
     "prettier-eslint-cli": "^5.0.1",
     "react-hot-loader": "^4.13.0",
     "serve": "^13.0.2",
-    "ts-node": "^10.4.0"
+    "ts-node": "^10.4.0",
+    "react-helmet-async": "^1.2.2"
   },
   "scripts": {
     "build": "yarn tsc & rollup -c",

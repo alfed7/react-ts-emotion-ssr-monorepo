@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import type { ReactChild, ReactChildren, FC } from "react";
 import { useTheme, Theme } from "@emotion/react";
-import { resolveColor } from "../../theme";
+import { resolveColor } from "theme";
 
 export interface AppBarProps {
   children: ReactChild | ReactChildren;
