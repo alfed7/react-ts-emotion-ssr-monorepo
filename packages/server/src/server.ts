@@ -56,20 +56,9 @@ const ssr = (req: express.Request, res: express.Response, next: any) => {
     });
   Promise.all(promises)
     .then(() => {
-      const context = {
-        pageNotFound: false
-      };
-      const content = renderHtml(req, store, context);
+      const content = renderHtml(req, store);
 
       // It's better to handle redirects on a client because of a browser cache.
-      // if(context.url) {
-      //   return res.redirect(301, context.url);
-      // }
-      if (context.pageNotFound) {
-        res.statusCode = 404;
-        next("Not found");
-      }
-
       sendResponse(res, content);
       next();
     })

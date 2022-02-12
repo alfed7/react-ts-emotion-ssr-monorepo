@@ -1,7 +1,4 @@
-
-const NotFoundPage = ({staticContext = {}}) => {
-    //staticContext.pageNotFound = true;
-
+const NotFoundPage = () => {
     return <h1>Page does not exist</h1>
 };
 

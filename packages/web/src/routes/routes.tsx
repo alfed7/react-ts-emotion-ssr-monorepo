@@ -1,5 +1,5 @@
 import App from "../App";
-import { HomeView, AboutView } from "../views";
+import { HomeView, AboutView, NotFoundPage } from "../views";
 import { LandingLayout } from '../layouts';
 
 export default [
@@ -16,6 +16,11 @@ export default [
         ...AboutView,
         layout: LandingLayout,
         path: "/about",
+      },
+      {
+        ...NotFoundPage,
+        layout: LandingLayout,
+        path: "*",
       },
     ],
   },

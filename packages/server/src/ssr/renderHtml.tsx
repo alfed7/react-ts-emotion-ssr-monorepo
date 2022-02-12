@@ -4,13 +4,13 @@ import { Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 import { routes, renderRoutes } from "@retesm/web";
 import serialize from "serialize-javascript";
-import { FilledContext, HelmetData, HelmetProvider } from "react-helmet-async";
+import { HelmetProvider } from "react-helmet-async";
 
-export default (req: any, store: any, context: any) => {
+export default (req: any, store: any) => {
   const helmetContext: any = {};
 
   const contentJsx = <Provider store={store}>
-    <Router context={context} location={req.url}>
+    <Router location={req.url}>
       <HelmetProvider context={helmetContext}>
         <Routes>
           {renderRoutes(routes)}

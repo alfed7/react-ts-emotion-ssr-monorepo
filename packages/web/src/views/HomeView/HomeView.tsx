@@ -13,7 +13,8 @@ const Home = () => {
     <Fragment>
       <HelmetHead title="Home page" />
       <h1>Home</h1>
-      <Link to="/about">About</Link>
+      <div><Link to="/about">About</Link></div>
+      <div><Link to="/nowhere">Nowhere</Link></div>
 
       <div
         css={css`
