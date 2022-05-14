@@ -1,10 +1,10 @@
 import { css } from "@emotion/react";
-import type { ReactChild, ReactChildren, FC } from "react";
+import type { FC, ReactNode } from "react";
 import { useTheme, Theme } from "@emotion/react";
 import { resolveColor } from "theme";
 
 export interface AppBarProps {
-  children: ReactChild | ReactChildren;
+  children: ReactNode;
   /**
    * What background color to use
    */

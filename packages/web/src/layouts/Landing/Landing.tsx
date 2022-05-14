@@ -1,9 +1,9 @@
-import type { ReactChild, ReactChildren } from "react";
+import type { ReactChild, ReactChildren, ReactNode } from "react";
 import { css } from '@emotion/react';
 import { Footer } from "../common/components";
 
 export interface ILandingProps {
-  children: ReactChild | ReactChildren
+  children: ReactNode;
 }
 
 const Landing = (props: ILandingProps) => {
