@@ -1,5 +1,5 @@
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
+import { configureStore } from '@reduxjs/toolkit'
+//import thunk from "redux-thunk";
 import { reducers, Session } from "@retesm/web";
 import axios, {AxiosRequestConfig} from "axios";
 //import config from "config";
@@ -24,11 +24,15 @@ export default (req: any, res: any) => {
   // const user =
   // const authState = user ? {auth: { loggedIn: true, user }} : {};
 
-  const store = createStore(
-    reducers,
-    {}, //authState,
-    applyMiddleware(thunk.withExtraArgument(axiosInstance))
-  );
+  const store = configureStore({
+    reducer: reducers,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument: axiosInstance,
+        },
+      }),//.concat(logger),
+  });
 
   return store;
 };

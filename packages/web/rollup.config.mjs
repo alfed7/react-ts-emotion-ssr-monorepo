@@ -1,4 +1,4 @@
-const pkg = require("./package.json");
+import pkg from "./package.json" assert { type: "json" };
 
 import { babel } from "@rollup/plugin-babel";
 import resolve from "@rollup/plugin-node-resolve";
@@ -6,12 +6,12 @@ import commonjs from "@rollup/plugin-commonjs";
 //import typescript from "@rollup/plugin-typescript";
 import replace from "rollup-plugin-replace";
 //import copy from "rollup-plugin-copy";
-import { terser } from "rollup-plugin-terser";
+//import terser from "@rollup/plugin-terser";
 import svgr from '@svgr/rollup';
 import alias from '@rollup/plugin-alias';
-import path from 'path';
-
-const projectRootDir = path.resolve(__dirname);
+//import path from 'path';
+//const projectRootDir = path.resolve(__dirname);
+import { fileURLToPath } from 'node:url'
 
 const production = !process.env.ROLLUP_WATCH;
 const extensions = [".js", ".jsx", ".ts", ".tsx"];
@@ -64,7 +64,7 @@ export default [
         entries: [
           {
             find: 'components',
-            replacement: path.resolve(projectRootDir, 'src/components')
+            replacement: fileURLToPath(new URL('src/components', import.meta.url)) //path.resolve(projectRootDir, 'src/components')
           }
         ],
       }),
@@ -119,7 +119,7 @@ export default [
         entries: [
           {
             find: 'components',
-            replacement: path.resolve(projectRootDir, 'src/components')
+            replacement: fileURLToPath(new URL('src/components', import.meta.url))//path.resolve(projectRootDir, 'src/components')
           }
         ],
       }),
